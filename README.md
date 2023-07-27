@@ -17,3 +17,6 @@ threshold is the maximum averaged latency in squac (sec)
 Datacenter options are: PNSN UCB SCEDC MENLO or All
 example output .png name: Sniffed_latencies_UCB_2023-07-17T1900_to_2023-07-17T1940.png
 
+Results on: https://seismo.ess.washington.edu/ahutko/IMPORT_CHANNELS/
+
+
