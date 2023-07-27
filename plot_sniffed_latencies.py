@@ -3,7 +3,7 @@
 # Simple script that pulls measurement from the squac database of 10-minute-averaged
 #   sniffed latencies and plots red/green for the maximum measurement within the
 #   time window being above/below the threshold.
-# Sniffed datacenters are eew-dev1 at MENLO, UCB, SCEDC and ewserver1 at PNSN.
+# Sniffed datacenters are eew-dev1 at MENLO, UCB, SCEDC and ewserver2 at PNSN.
 #
 # Usage:
 # ./plot_sniffed_latencies.py starttime endtime datacenter threshold 'Fig title comment field'
@@ -95,7 +95,7 @@ networks = [ 'AZ', 'BC', 'BK', 'CC', 'CE', 'CI', 'CN', 'IU', 'NC', 'NN', 'NP'
 if ( datacenter == 'PNSN' ):
     lonW, lonE, latS, latN = -127.4, -115., 41.3, 51.5
     latency_metric_id = [ 76 ]
-    strdatacenter = 'PNSN ewserver1'
+    strdatacenter = 'PNSN ewserver2'
 elif ( datacenter == 'MENLO' ):
     lonW, lonE, latS, latN = -125, -116, 33, 43
     latency_metric_id = [ 135 ]
@@ -111,7 +111,7 @@ elif ( datacenter == 'UCB' ):
 elif ( datacenter == 'All' ):
     lonW, lonE, latS, latN = -127.4, -113.5, 32, 53
     latency_metric_id = [ 76, 123, 129, 135 ]
-    strdatacenter = 'PNSN ewserver1 & dev1 @ UCB, CIT, Menlo'
+    strdatacenter = 'PNSN ewserver2 & dev1 @ UCB, CIT, Menlo'
 else:
     print("Invalid datacenter, choose: PNSN, MENLO, SCEDC, UCB, All")
     sys.exit()
