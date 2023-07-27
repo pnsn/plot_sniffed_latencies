@@ -5,7 +5,7 @@ Simple script to plot sniffed latencies from the SQUAC db.
 The measurements considered are 10-minute averages of sniffed latencies (end of packet time minus now, plus half-packet length).
 Sniffed servers at datacenters are eew-dev1 at MENLO, UCB, SCEDC and ewserver1 at PNSN.
 
-This script collects the measurements of averaged latencies within the time window specified and simply asks is that average above or below the user specified threshold.
+This script collects the measurements of averaged latencies within the time window specified and simply asks is the maximum of the measurements above or below the user specified threshold.
 Green is a station whose average was always below the threshold, Red is a station whos maximum average is above the threshold.
 Black is a station that was sniffed in the past, but not within the specified time-window, e.g. the station had been down for months.
 
