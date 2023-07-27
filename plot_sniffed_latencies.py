@@ -1,6 +1,21 @@
 #!/home/ahutko/miniconda3/envs/squac/bin/python
 
-# ./plot_sniffed_latencies.py 2023-7-17T18:40 2023-7-17T19:00 UCB 3.5 'Fig title comment field'
+# Simple script that pulls measurement from the squac database of 10-minute-averaged
+#   sniffed latencies and plots red/green for the maximum measurement within the
+#   time window being above/below the threshold.
+# Sniffed datacenters are eew-dev1 at MENLO, UCB, SCEDC and ewserver1 at PNSN.
+#
+# Usage:
+# ./plot_sniffed_latencies.py starttime endtime datacenter threshold 'Fig title comment field'
+#
+# Example:
+# ./plot_sniffed_latencies.py 2023-7-17T19:00 2023-7-17T19:40 UCB 60 'Fig title comment field'
+#
+# threshold is the maximum averaged latency in squac (sec)
+# Datacenter options are: PNSN UCB SCEDC MENLO or All
+# example output .png name: Sniffed_latencies_UCB_2023-07-17T1900_to_2023-07-17T1940.png
+#
+# Alex Hutko July 2023
 
 import os
 import sys
@@ -117,7 +132,7 @@ for line in lines:
         pass
 
 # Read in file that has all the SNCLs and squac channel ids (faster than squac)
-f = open('/home/ahutko/proj/STATION_REPORT/DATA_MINING/channels_squacids_west_coast')
+f = open('channels_squacids_west_coast')
 lines = f.readlines()
 f.close()
 channels = {}
@@ -261,6 +276,4 @@ T1strfig = T1.strftime("%Y-%m-%dT%H%M")
 T2strfig = T2.strftime("%Y-%m-%dT%H%M")
 ax1.set_title('Sniffed latencies (averaged over 10-min) \n' + T1str + ' to ' + T2str + '\n' + 'on ' + strdatacenter + '\n' + strcomment )
 plt.savefig('Sniffed_latencies_' + datacenter + '_' + T1strfig + '_to_' + T2strfig + '.png')
-
-
 
